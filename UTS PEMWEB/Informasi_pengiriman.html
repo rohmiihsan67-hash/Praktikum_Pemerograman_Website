@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Website Input Nilai & Informasi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container-fluid p-3">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-success text-white fw-bold">
+          Input Data
+        </div>
+        <div class="card-body">
+          <form id="nilaiForm">
+            <div class="mb-3">
+              <label class="form-label">Nama Mahasiswa</label>
+              <input type="text" class="form-control" id="nama" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">NIM</label>
+              <input type="text" class="form-control" id="nim" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mata Kuliah</label>
+              <input type="text" class="form-control" id="matkul" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Program Studi</label>
+              <input type="text" class="form-control" id="prodi" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Semester</label>
+              <input type="number" class="form-control" id="semester" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Nilai</label>
+              <input type="number" class="form-control" id="nilai" min="0" max="100" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-header text-white fw-bold" style="background-color:#4e11c0;">
+              Informasi Pengiriman
+            </div>
+            <div class="card-body">
+              <ol class="mb-0">
+                <li>Data ditampilkan di console</li>
+                <li>Data disimpan di array</li>
+                <li>Jumlah data diupload: <span id="jumlah-data">0</span></li>
+                <li>Form akan kosong kembali</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white fw-bold">
+              Data Mahasiswa
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Mata Kuliah</th>
+                    <th>Program Studi</th>
+                    <th>Semester</th>
+                    <th>Nilai</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nabil</td>
+                    <td>22001</td>
+                    <td>Algoritma</td>
+                    <td>Informatika</td>
+                    <td>3</td>
+                    <td>85</td>
+                  </tr>
+                  <tr>
+                    <td>Toya</td>
+                    <td>22002</td>
+                    <td>Basis Data</td>
+                    <td>Informatika</td>
+                    <td>3</td>
+                    <td>90</td>
+                  </tr>
+                  <tr>
+                    <td>Ihsan</td>
+                    <td>22003</td>
+                    <td>Pemrograman Web</td>
+                    <td>Informatika</td>
+                    <td>3</td>
+                    <td>80</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const dataMahasiswa = [];
+
+  document.getElementById("nilaiForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let nim = document.getElementById("nim").value;
+    let matkul = document.getElementById("matkul").value;
+    let prodi = document.getElementById("prodi").value;
+    let semester = document.getElementById("semester").value;
+    let nilai = document.getElementById("nilai").value;
+
+    if (nilai < 0 || nilai > 100) {
+      alert("Nilai harus antara 0–100");
+      return;
+    }
+
+    dataMahasiswa.push({ nama, nim, matkul, prodi, semester, nilai });
+
+    console.log("Data baru:", { nama, nim, matkul, prodi, semester, nilai });
+    console.log("Semua data:", dataMahasiswa);
+
+    document.getElementById("jumlah-data").innerText = dataMahasiswa.length;
+
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
