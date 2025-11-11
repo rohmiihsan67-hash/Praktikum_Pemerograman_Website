@@ -1,0 +1,2 @@
+Setelah form diubah dari method="post" menjadi method="get" dan semua $_POST diganti dengan $_GET, script-nya masih bisa jalan dengan normal.
+Artinya, data dari form tetap bisa dikirim dan diproses oleh PHP seperti sebelumnya. Bedanya ada di cara pengiriman datanya, Kalau pakai POST, data dikirim lewat “bagian dalam” request (tidak kelihatan di URL). Tapi kalau pakai GET, data dikirim lewat alamat URL, jadi bisa langsung kelihatan di address bar.

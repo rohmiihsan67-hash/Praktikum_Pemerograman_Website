@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulasi Tabungan Bank X</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-success text-white">
+      <h3 class="mb-0">Simulasi Tabungan Bank X</h3>
+    </div>
+    <div class="card-body">
+      <form action="proses_soal1.php" method="post">
+        
+        <!-- Saldo Awal -->
+        <div class="mb-3">
+          <label class="form-label">Saldo Awal (Rp)</label>
+          <input type="number" name="saldo_awal" class="form-control" required>
+        </div>
+
+        <!-- Bunga per Bulan -->
+        <div class="mb-3">
+          <label class="form-label">Bunga per Bulan (%)</label>
+          <input type="number" step="0.01" name="bunga" class="form-control" required>
+        </div>
+
+        <!-- Lama Bulan -->
+        <div class="mb-3">
+          <label class="form-label">Lama Bulan</label>
+          <input type="number" name="bulan" class="form-control" required>
+        </div>
+
+        <!-- Tombol -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Hitung</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
